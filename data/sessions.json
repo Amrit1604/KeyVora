@@ -1,0 +1,14 @@
+[
+  {
+    "sessionId": "abc123",
+    "userId": "user1",
+    "createdAt": "2023-10-01T12:00:00Z",
+    "expiresAt": "2023-10-01T14:00:00Z"
+  },
+  {
+    "sessionId": "def456",
+    "userId": "user2",
+    "createdAt": "2023-10-02T12:00:00Z",
+    "expiresAt": "2023-10-02T14:00:00Z"
+  }
+]

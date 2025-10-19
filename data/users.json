@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "username": "hacker1",
+        "email": "hacker1@example.com",
+        "passwordHash": "hashed_password_1",
+        "createdAt": "2023-10-01T12:00:00Z"
+    },
+    {
+        "id": 2,
+        "username": "hacker2",
+        "email": "hacker2@example.com",
+        "passwordHash": "hashed_password_2",
+        "createdAt": "2023-10-02T12:00:00Z"
+    }
+]
