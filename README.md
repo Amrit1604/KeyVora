@@ -92,7 +92,6 @@ codedpad-pro
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd codedpad-pro
    ```
 
 2. Install dependencies:
