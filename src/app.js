@@ -9,16 +9,34 @@ require('dotenv').config();
 const app = express();
 
 // CORS Configuration - allow configured frontend origins (comma-separated)
-// FRONTEND_ORIGIN example: https://app.example.com,https://staging.example.com
+// FRONTEND_ORIGIN example: https://app.example.com,https://*.vercel.app
 const allowedOrigins = (process.env.FRONTEND_ORIGIN || 'http://localhost:5173')
   .split(',')
   .map(o => o.trim())
   .filter(Boolean);
 
+// Helper to check if origin matches (supports wildcards like *.vercel.app)
+function isOriginAllowed(origin) {
+  if (!origin) return true; // Allow no-origin (REST tools, same-origin)
+  
+  return allowedOrigins.some(allowed => {
+    // Exact match
+    if (allowed === origin) return true;
+    
+    // Wildcard match (e.g., https://*.vercel.app)
+    if (allowed.includes('*')) {
+      const pattern = allowed.replace(/\*/g, '.*').replace(/\./g, '\\.');
+      const regex = new RegExp(`^${pattern}$`);
+      return regex.test(origin);
+    }
+    
+    return false;
+  });
+}
+
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow REST tools / same-origin (no origin header) and matching whitelist
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (isOriginAllowed(origin)) {
       return callback(null, true);
     }
     return callback(new Error(`CORS: Origin ${origin} not allowed`));
