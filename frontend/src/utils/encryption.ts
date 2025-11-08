@@ -14,7 +14,7 @@ const ITERATIONS = 100000;
  */
 function str2ab(str: string): ArrayBuffer {
   const encoder = new TextEncoder();
-  return encoder.encode(str);
+  return encoder.encode(str).buffer;
 }
 
 /**
@@ -28,8 +28,9 @@ function ab2str(buffer: ArrayBuffer): string {
 /**
  * Convert ArrayBuffer to hex string
  */
-function ab2hex(buffer: ArrayBuffer): string {
-  return Array.from(new Uint8Array(buffer))
+function ab2hex(buffer: ArrayBuffer | Uint8Array): string {
+  const arr = buffer instanceof ArrayBuffer ? new Uint8Array(buffer) : buffer;
+  return Array.from(arr)
     .map(b => b.toString(16).padStart(2, '0'))
     .join('');
 }
@@ -48,7 +49,8 @@ function hex2ab(hex: string): ArrayBuffer {
 /**
  * Derive encryption key from password using PBKDF2
  */
-async function deriveKey(password: string, salt: ArrayBuffer): Promise<CryptoKey> {
+async function deriveKey(password: string, salt: ArrayBuffer | Uint8Array): Promise<CryptoKey> {
+  const saltBuffer = salt instanceof ArrayBuffer ? salt : (salt.buffer as ArrayBuffer);
   const passwordKey = await crypto.subtle.importKey(
     'raw',
     str2ab(password),
@@ -60,7 +62,7 @@ async function deriveKey(password: string, salt: ArrayBuffer): Promise<CryptoKey
   return crypto.subtle.deriveKey(
     {
       name: 'PBKDF2',
-      salt,
+      salt: saltBuffer,
       iterations: ITERATIONS,
       hash: 'SHA-256',
     },

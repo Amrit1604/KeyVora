@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FileText, Lock, Calendar, Edit, Trash2, Copy, Download, Check, Share2, LockKeyhole } from 'lucide-react';
-import { padApi, type Pad as ApiPad } from '../services/api';
+import { padApi } from '../services/api';
 import { decryptBlob } from '../utils/encryption';
 import { passwordStore } from '../utils/passwordStore';
 import FilePreview from '../components/FilePreview';

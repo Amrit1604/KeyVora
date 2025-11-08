@@ -113,7 +113,7 @@ export default function PadsPage() {
               <div className="flex items-start justify-between mb-3">
                 <FileText className="w-6 h-6 text-green-400" />
                 {pad.encrypted && (
-                  <Lock className="w-5 h-5 text-yellow-400" title="Encrypted" />
+                  <Lock className="w-5 h-5 text-yellow-400" aria-label="Encrypted" />
                 )}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2 truncate">
