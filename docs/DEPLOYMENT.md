@@ -23,9 +23,16 @@ copy frontend\.env.example frontend\.env
 ```
 
 Edit `.env` (backend):
-- MONGODB_URI="your MongoDB connection string"
+- MONGODB_URI="your MongoDB Atlas connection string (mongodb+srv://...)"
 - FRONTEND_ORIGIN="http://localhost:5173" (will update to Vercel URL later)
-- ENCRYPTION_KEY="a long random string"
+- ENCRYPTION_KEY="a long random string - generate with: node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
+
+**How to get MongoDB Atlas URI:**
+1. MongoDB Atlas → Database → Connect → Drivers
+2. Copy `mongodb+srv://...` connection string
+3. Replace `<password>` with your actual password
+4. Add `/keyvora` before the `?` to specify database name
+5. Example: `mongodb+srv://user:pass@cluster.mongodb.net/keyvora?retryWrites=true&w=majority`
 
 Edit `frontend/.env` (frontend):
 - VITE_API_URL="http://localhost:3000" (will update to Render URL later)
@@ -37,8 +44,8 @@ Option A: Use render.yaml (recommended)
 2. In Render, New → Blueprint → pick your repo.
 3. Confirm service "keyvora-api".
 4. Set env vars/secrets after first deploy:
-   - MONGODB_URI → your Atlas/Render URI
-   - ENCRYPTION_KEY → strong secret
+   - MONGODB_URI → your MongoDB Atlas URI (mongodb+srv://...)
+   - ENCRYPTION_KEY → strong secret (64-char hex recommended)
    - FRONTEND_ORIGIN → your Vercel domain(s), comma-separated (e.g. https://your-app.vercel.app)
 5. Trigger redeploy.
 
