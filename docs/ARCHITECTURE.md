@@ -1,7 +1,7 @@
-# CodedPad Architecture Documentation
+# KeyVora Architecture Documentation
 
 ## Overview
-CodedPad is a web-based application designed for secure note-taking with a hacker-themed user interface. The application allows users to create, view, and edit encrypted notes, ensuring that sensitive information remains private. The architecture is built using Node.js and Express for the backend, with EJS as the templating engine for the frontend.
+KeyVora is a web-based application designed for secure note-taking with a hacker-themed user interface. The application allows users to create, view, and edit encrypted notes, ensuring that sensitive information remains private. The architecture is built using Node.js and Express for the backend, with EJS as the templating engine for the frontend.
 
 ## Architecture Components
 
@@ -39,4 +39,4 @@ CodedPad is a web-based application designed for secure note-taking with a hacke
 - **Data Validation**: Input validation is performed to ensure that user inputs meet security standards, such as passphrase strength.
 
 ## Conclusion
-CodedPad is designed with a focus on security and usability, leveraging modern web technologies to provide a seamless experience for users looking to manage their notes securely. The architecture is modular, allowing for future enhancements and scalability.
+KeyVora is designed with a focus on security and usability, leveraging modern web technologies to provide a seamless experience for users looking to manage their notes securely. The architecture is modular, allowing for future enhancements and scalability.

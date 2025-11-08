@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+// Use Vite env var if provided, else fallback to localhost. Ensure trailing /api
+const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
+const API_BASE_URL = `${BASE.replace(/\/$/, '')}/api`;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -96,7 +98,7 @@ export const padApi = {
 
 // Health check
 export const healthCheck = async (): Promise<{ status: string; message: string }> => {
-  const response = await axios.get('http://localhost:3000/health');
+  const response = await axios.get(`${BASE.replace(/\/$/, '')}/health`);
   return response.data;
 };
 

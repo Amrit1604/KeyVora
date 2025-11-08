@@ -3,12 +3,27 @@ const cors = require('cors');
 const errorHandler = require('./middleware/errorHandler');
 const apiRoutes = require('./routes/api');
 
+// Load env variables early (dotenv already required inside config/env.js but load defensively)
+require('dotenv').config();
+
 const app = express();
 
-// CORS Configuration - Allow frontend to communicate
+// CORS Configuration - allow configured frontend origins (comma-separated)
+// FRONTEND_ORIGIN example: https://app.example.com,https://staging.example.com
+const allowedOrigins = (process.env.FRONTEND_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map(o => o.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite dev server
-  credentials: true
+  origin: (origin, callback) => {
+    // Allow REST tools / same-origin (no origin header) and matching whitelist
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS: Origin ${origin} not allowed`));
+  },
+  credentials: true,
 }));
 
 // Middleware setup - Increase payload limit for file attachments (base64)
@@ -20,7 +35,7 @@ app.use('/api', apiRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', message: 'CodedPad Pro API is running' });
+  res.json({ status: 'ok', message: 'KeyVora API is running' });
 });
 
 // 404 handler for undefined routes

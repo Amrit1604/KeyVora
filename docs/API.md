@@ -1,7 +1,7 @@
-# API Documentation for CodedPad Pro
+# API Documentation for KeyVora
 
 ## Overview
-CodedPad Pro provides a set of API endpoints that allow clients to interact with the application for creating, retrieving, and managing encrypted pads. This document outlines the available endpoints, their methods, and the expected request and response formats.
+KeyVora provides a set of API endpoints that allow clients to interact with the application for creating, retrieving, and managing encrypted pads. This document outlines the available endpoints, their methods, and the expected request and response formats.
 
 ## Base URL
 All API endpoints are prefixed with `/api`.
@@ -106,4 +106,4 @@ All content sent to and from the API should be encrypted using the Web Crypto AP
 All API responses should include appropriate HTTP status codes and error messages to help clients handle errors gracefully.
 
 ## Conclusion
-This API documentation provides a comprehensive guide for developers to integrate with CodedPad Pro. For further assistance, please refer to the project's README or contact the development team.
+This API documentation provides a comprehensive guide for developers to integrate with KeyVora. For further assistance, please refer to the project's README or contact the development team.

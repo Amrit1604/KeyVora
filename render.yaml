@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: keyvora-api
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 3000
+      # Set FRONTEND_ORIGIN to your Vercel domain(s) after deploying frontend
+      - key: FRONTEND_ORIGIN
+        value: http://localhost:5173
+      # Set your MongoDB connection string (Atlas/Render) in the dashboard secret store
+      - key: MONGODB_URI
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false

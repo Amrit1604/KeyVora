@@ -1,9 +1,9 @@
 # SECURITY.md
 
-# Security Measures and Considerations for CodedPad
+# Security Measures and Considerations for KeyVora
 
 ## Overview
-CodedPad is designed with security in mind, focusing on client-side encryption and data protection. This document outlines the security measures implemented in the application and provides recommendations for users to enhance their security posture.
+KeyVora is designed with security in mind, focusing on client-side encryption and data protection. This document outlines the security measures implemented in the application and provides recommendations for users to enhance their security posture.
 
 ## Client-Side Encryption
 - All notes are encrypted on the client side before being sent to the server. This ensures that sensitive data is never transmitted in plaintext.
@@ -34,4 +34,4 @@ CodedPad is designed with security in mind, focusing on client-side encryption a
 - Regularly back up encrypted notes to prevent data loss.
 
 ## Conclusion
-Security is an ongoing process, and CodedPad is committed to continuously improving its security measures. Users are encouraged to stay informed about best practices and to take proactive steps to protect their data.
+Security is an ongoing process, and KeyVora is committed to continuously improving its security measures. Users are encouraged to stay informed about best practices and to take proactive steps to protect their data.

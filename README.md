@@ -1,6 +1,6 @@
-# CodedPad Pro
+# KeyVora
 
-CodedPad Pro is an enhanced version of the classic CodedPad, designed with a professional hacker-themed UI and advanced functionalities. This application allows users to create, edit, and manage encrypted notes (pads) securely.
+KeyVora is a modern, secure, encrypted note-taking platform with a hacker-themed UI and advanced functionality. Users can create, edit, and manage encrypted pads securely with client‑side encryption and zero‑knowledge design principles.
 
 ## Features
 
@@ -12,7 +12,7 @@ CodedPad Pro is an enhanced version of the classic CodedPad, designed with a pro
 ## Project Structure
 
 ```
-codedpad-pro
+keyvora
 ├── src
 │   ├── app.js
 │   ├── server.js
@@ -92,7 +92,7 @@ codedpad-pro
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd codedpad-pro
+   cd keyvora
    ```
 
 2. Install dependencies:
