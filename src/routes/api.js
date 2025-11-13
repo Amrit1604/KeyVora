@@ -3,6 +3,11 @@ const router = express.Router();
 const PadController = require('../controllers/padController');
 const padController = new PadController();
 
+// Hello endpoint
+router.get('/hello', (req, res) => {
+  res.json({ message: 'hello' });
+});
+
 // API Routes for AJAX requests
 router.post('/pads', padController.createPad.bind(padController));
 router.get('/pads/:id', padController.getPad.bind(padController));
