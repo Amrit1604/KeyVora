@@ -14,7 +14,7 @@ KeyVora is a web-based application designed for secure note-taking with a hacker
 - **Controllers**: The application follows the MVC pattern, with controllers managing the logic for pads and user actions.
   - `padController.js`: Manages operations related to pads, such as creating, retrieving, and updating notes.
   - `userController.js`: Handles user-related actions, although user accounts are not fully implemented.
-  
+
 ### 3. **Routing**
 - **API Routes**: The application exposes API endpoints for client-side interactions, allowing for saving and retrieving encrypted notes.
 - **Main Routes**: The main application routes handle rendering of views for pads and authentication.

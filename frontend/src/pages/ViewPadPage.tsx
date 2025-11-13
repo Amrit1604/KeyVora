@@ -67,6 +67,8 @@ export default function ViewPadPage() {
             setDecrypted(true);
             setPassword(savedPassword); // Keep password for editing
           } catch (err) {
+
+
             // Saved password didn't work, show decrypt UI
             setPad({
               id: data.id,
@@ -78,6 +80,7 @@ export default function ViewPadPage() {
               attachments: data.attachments || [],
             });
           }
+
         } else {
           // No saved password, show decrypt UI
           setPad({
